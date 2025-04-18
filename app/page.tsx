@@ -87,40 +87,24 @@ export default function Home() {
               <TabsTrigger value="hawaii">ハワイの老舗</TabsTrigger>
             </TabsList>
             <TabsContent value="popular" className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <CategoryCard title="完全限定アロハ" imageUrl="/tropical-threads-collectors-item.png" href="/category/limited" />
+              <CategoryCard
+                title="完全限定アロハ"
+                imageUrl="/tropical-threads-collectors-item.png"
+                href="/category/limited"
+              />
               <CategoryCard
                 title="長袖アロハシャツ"
                 imageUrl="/tropical-long-sleeve.png"
                 href="/category/long-sleeve"
               />
               <CategoryCard title="レディースアロハ" imageUrl="/tropical-floral-woman.png" href="/category/women" />
-              <CategoryCard
-                title="キッズアロハ"
-                imageUrl="/placeholder.svg?height=200&width=200&query=kids hawaiian shirt"
-                href="/category/kids"
-              />
+              <CategoryCard title="キッズアロハ" imageUrl="/placeholder.svg?key=iy2u6" href="/category/kids" />
             </TabsContent>
             <TabsContent value="cost" className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <BrandCard
-                name="RJC"
-                imageUrl="/placeholder.svg?height=200&width=200&query=RJC brand logo"
-                href="/brand/rjc"
-              />
-              <BrandCard
-                name="WAIMEA CASUALS"
-                imageUrl="/placeholder.svg?height=200&width=200&query=WAIMEA CASUALS brand logo"
-                href="/brand/waimea"
-              />
-              <BrandCard
-                name="TWO PALMS"
-                imageUrl="/placeholder.svg?height=200&width=200&query=TWO PALMS brand logo"
-                href="/brand/two-palms"
-              />
-              <BrandCard
-                name="GO BAREFOOT"
-                imageUrl="/placeholder.svg?height=200&width=200&query=GO BAREFOOT brand logo"
-                href="/brand/go-barefoot"
-              />
+              <BrandCard name="RJC" imageUrl="/abstract-interlocking-shapes.png" href="/brand/rjc" />
+              <BrandCard name="WAIMEA CASUALS" imageUrl="/waimea-casuals-logo.png" href="/brand/waimea" />
+              <BrandCard name="TWO PALMS" imageUrl="/stylized-twin-palms.png" href="/brand/two-palms" />
+              <BrandCard name="GO BAREFOOT" imageUrl="/minimalist-barefoot-logo.png" href="/brand/go-barefoot" />
             </TabsContent>
             <TabsContent value="brand" className="grid grid-cols-2 gap-4 md:grid-cols-4">
               <BrandCard
