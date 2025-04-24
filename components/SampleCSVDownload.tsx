@@ -1,9 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { DownloadIcon } from "@radix-ui/react-icons"
-import { sampleData } from "@/lib/sampleData"
 import Papa from "papaparse"
+import { sampleData } from "@/lib/sampleData"
 
 export default function SampleCSVDownload() {
   const handleDownload = () => {
@@ -23,9 +21,25 @@ export default function SampleCSVDownload() {
   }
 
   return (
-    <Button variant="outline" size="sm" onClick={handleDownload}>
-      <DownloadIcon className="mr-2 h-4 w-4" />
+    <button
+      onClick={handleDownload}
+      className="px-3 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center"
+    >
+      <svg
+        className="mr-2 h-4 w-4"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+        />
+      </svg>
       サンプルCSVをダウンロード
-    </Button>
+    </button>
   )
 }

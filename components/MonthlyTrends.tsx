@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
 import type { GroupedData, MonthlyGroupedData } from "@/lib/types"
 import { getAllBrands, getMonthlyDataForBrands } from "@/lib/utils"
 
@@ -66,18 +64,20 @@ export default function MonthlyTrends({ data, monthlyData }: MonthlyTrendsProps)
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {brands.map((brand, index) => (
             <div key={brand.brandCode} className="flex items-center space-x-2">
-              <Checkbox
+              <input
+                type="checkbox"
                 id={`brand-${brand.brandCode}`}
                 checked={selectedBrands.includes(brand.brandCode)}
-                onCheckedChange={() => handleBrandToggle(brand.brandCode)}
+                onChange={() => handleBrandToggle(brand.brandCode)}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <Label htmlFor={`brand-${brand.brandCode}`} className="flex items-center">
+              <label htmlFor={`brand-${brand.brandCode}`} className="flex items-center text-sm text-gray-700">
                 <div
                   className="w-3 h-3 rounded-full mr-2"
                   style={{ backgroundColor: COLORS[index % COLORS.length] }}
                 ></div>
                 {brand.brandName}
-              </Label>
+              </label>
             </div>
           ))}
         </div>

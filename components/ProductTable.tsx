@@ -1,6 +1,5 @@
 "use client"
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import type { ProductData } from "@/lib/types"
 import { formatCurrency, formatNumber } from "@/lib/utils"
 
@@ -11,26 +10,40 @@ interface ProductTableProps {
 export default function ProductTable({ products }: ProductTableProps) {
   return (
     <div className="overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>商品コード</TableHead>
-            <TableHead className="text-right">販売数</TableHead>
-            <TableHead className="text-right">売上高</TableHead>
-            <TableHead className="text-right">平均単価</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              商品コード
+            </th>
+            <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              販売数
+            </th>
+            <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              売上高
+            </th>
+            <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              平均単価
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
           {products.map((product) => (
-            <TableRow key={product.productCode}>
-              <TableCell className="font-medium">{product.productCode}</TableCell>
-              <TableCell className="text-right">{formatNumber(product.units)}</TableCell>
-              <TableCell className="text-right">{formatCurrency(product.revenue)}</TableCell>
-              <TableCell className="text-right">{formatCurrency(product.averagePrice)}</TableCell>
-            </TableRow>
+            <tr key={product.productCode} className="hover:bg-gray-50">
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{product.productCode}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                {formatNumber(product.units)}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                {formatCurrency(product.revenue)}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                {formatCurrency(product.averagePrice)}
+              </td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
+        </tbody>
+      </table>
     </div>
   )
 }
